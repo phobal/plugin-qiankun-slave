@@ -1,12 +1,12 @@
 {
-  "name": "@wyny/plugin-qiankun-slave",
-  "version": "0.0.2",
+  "name": "plugin-qiankun-slave",
+  "version": "0.0.3",
   "description": "",
   "authors": {
     "name": "phobal",
     "email": "phobal@126.com"
   },
-  "repository": "@wyny/plugin-qiankun-slave",
+  "repository": "plugin-qiankun-slave",
   "peerDependencies": {
     "umi": "2.x || ^2.9.0-0"
   },
