@@ -18,7 +18,9 @@ export default function(api, options: Options) {
         ...memo.define,
         API_PREFIX: `/api/${name}`
       },
-      dll: false,
     }
+  })
+  api.changePluginOption('umi-plugin-react', {
+    dll: false,
   })
 }
