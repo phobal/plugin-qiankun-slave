@@ -29,5 +29,8 @@
     "src",
     "ui"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "umi-plugin-react": "^1.13.0"
+  }
 }
