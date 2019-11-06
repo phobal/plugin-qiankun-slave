@@ -20,7 +20,4 @@ export default function(api, options: Options) {
       },
     }
   })
-  api.changePluginOption('umi-plugin-react:dll', {
-    dll: false,
-  })
 }
