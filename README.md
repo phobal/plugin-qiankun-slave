@@ -26,7 +26,9 @@ export default {
 
 ## Options
 
-`name`  子项目名称
+`name`  (string) 子项目名称, 例如: 'ecosphere-admin'  
+
+`portalDomain` (string) 主系统网址, 例如: 'http://admin.chinawyny.com'
 
 ## LICENSE
 

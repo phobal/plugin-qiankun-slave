@@ -10,7 +10,7 @@
   "peerDependencies": {
     "umi": "2.x || ^2.9.0-0"
   },
-  "main": "lib/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "start": "cross-env APP_ROOT=$PWD/example umi dev",
     "build": "father-build",
@@ -30,5 +30,9 @@
     "src",
     "ui"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "mustache": "^3.1.0",
+    "react-draggable": "^4.1.0"
+  }
 }
