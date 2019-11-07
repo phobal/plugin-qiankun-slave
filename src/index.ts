@@ -24,7 +24,7 @@ export default function(api: IApi, options: Options) {
       define: {
         // @ts-ignore
         ...memo.define,
-        API_PREFIX: `/api/${name}`
+        API_PREFIX: `/api-${name}`
       },
     }
   })
