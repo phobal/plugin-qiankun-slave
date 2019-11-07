@@ -3,14 +3,15 @@ import Draggable from 'react-draggable'
 
 const styles = {
   homeButtonWrapper: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: 20,
     right: 40,
     height: 48,
     width: 48,
     background:
       'url("http://172.16.17.29/front-end/uni/uploads/80bd97e7770822d5d78cc42f701e34d1/Home__1_.png") no-repeat 100% 100%',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    zIndex: 1000,
   }
 }
 const bounds = {
