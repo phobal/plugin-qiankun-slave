@@ -26,9 +26,11 @@ export default {
 
 ## Options
 
-`name`  (string) 子项目名称, 例如: 'ecosphere-admin'  
+`name`  (string 可选) 子项目名称, 例如: 'ecosphere-admin'， 如果不传默认会去读系统 `package.json` 下的 `name` 字段
 
-`portalDomain` (string) 主系统网址, 例如: 'http://admin.chinawyny.com'
+`isShowButton`  (boolean 可选) 是否显示回到主项目的按钮
+
+`portalDomain` (string 可选) 主系统网址, 例如: 'http://admin.chinawyny.com'
 
 ## LICENSE
 
