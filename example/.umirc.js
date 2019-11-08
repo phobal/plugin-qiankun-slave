@@ -19,7 +19,7 @@ export default {
     ],
     [
       join(__dirname, '..', require('../package').main || 'index.js'),
-      { name: 'test', portalDomain: 'http://172.16.11.30:5000' }
+      { isShowButton: false, portalDomain: 'http://172.16.11.30:5000' }
     ]
   ]
 }

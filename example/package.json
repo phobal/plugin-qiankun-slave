@@ -1,4 +1,5 @@
 {
+  "name": "test",
   "dependencies": {
     "umi-plugin-react": "^1.13.1"
   }
