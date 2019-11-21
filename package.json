@@ -11,6 +11,7 @@
     "umi": "2.x || ^2.9.0-0"
   },
   "main": "lib/index.js",
+  "src": "src/index.ts",
   "scripts": {
     "start": "cross-env APP_ROOT=$PWD/example umi dev",
     "build": "father-build",
