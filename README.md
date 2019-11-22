@@ -1,5 +1,7 @@
 # plugin-qiankun-slave
 
+ant design pro 项目快速接入微前端插件
+
 [![NPM version](https://img.shields.io/npm/v/plugin-qiankun-slave.svg?style=flat)](https://npmjs.org/package/plugin-qiankun-slave)
 [![NPM downloads](http://img.shields.io/npm/dm/plugin-qiankun-slave.svg?style=flat)](https://npmjs.org/package/plugin-qiankun-slave)
 
