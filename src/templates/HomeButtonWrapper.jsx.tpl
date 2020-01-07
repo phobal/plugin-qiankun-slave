@@ -33,12 +33,9 @@ const setLocalPosition = (data) => {
 const HomeButtonProvider = (props) => {
   const { children, portalDomain } = props
   const [position, setPosition] = React.useState(getLocalPosition())
-  const [dragging, setDrag] = React.useState(false)
-  const onDrag = () => {
-    setDrag(true)
-  }
   const onStop = (e, data) => {
     e.stopPropagation()
+    const { x: lastX, y: lastY } = getLocalPosition()
     setPosition({
       x: data.x,
       y: data.y
@@ -49,17 +46,15 @@ const HomeButtonProvider = (props) => {
     })
     // 为了模拟触发 onClick 事件
     // https://github.com/mzabriskie/react-draggable/issues/49
-    if (!dragging) {
+    if (lastX === data.x && lastY === data.y) {
       window.open('{{{portalDomain}}}', '_self')
     }
-    setDrag(false)
   }
   return (
     <React.Fragment>
       <Draggable
         bounds={bounds}
         position={position}
-        onDrag={onDrag}
         onStop={onStop}
       >
         <div title="回到主系统" style={styles.homeButtonWrapper}></div>
