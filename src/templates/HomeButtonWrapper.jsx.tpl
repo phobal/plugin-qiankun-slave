@@ -14,10 +14,6 @@ const styles = {
     zIndex: 1000,
   }
 }
-const bounds = {
-  bottom: 0,
-  right: 0
-}
 const getLocalPosition = () => {
   const position = localStorage.getItem('homeButtonPosition')
   const positionJSON = (position && JSON.parse(position)) || {}
@@ -57,7 +53,7 @@ const HomeButtonProvider = (props) => {
   return (
     <React.Fragment>
       <Draggable
-        bounds={bounds}
+        bounds="body"
         position={position}
         onDrag={onDrag}
         onStop={onStop}
