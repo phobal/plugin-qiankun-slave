@@ -20,9 +20,8 @@ Configure in `.umirc.js`,
 
 ```js
 export default {
-  plugins: [
-    ['plugin-qiankun-slave', options],
-  ],
+  plugins: ['plugin-qiankun-slave'],
+  'qiankun-slave': {} : Options
 }
 ```
 
