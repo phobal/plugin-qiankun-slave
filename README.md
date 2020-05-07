@@ -18,6 +18,17 @@ $ npm install plugin-qiankun-slave
 
 Configure in `.umirc.js`,
 
+#### 0.x 的配置方式(对应 umi2.x) 的插件配置方式
+```js
+export default {
+  plugins: [
+    ['plugin-qiankun-slave', options],
+  ],
+}
+```
+
+#### 1.x 的配置方式(对应 umi3.x) 的插件配置方式
+
 ```js
 export default {
   plugins: ['plugin-qiankun-slave'],
