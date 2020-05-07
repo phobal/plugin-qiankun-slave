@@ -1,6 +1,7 @@
 {
   "name": "test",
   "dependencies": {
-    "umi-plugin-react": "^1.13.1"
+    "@umijs/preset-react": "^1.4.19",
+    "umi": "^3.1.3"
   }
 }
