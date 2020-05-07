@@ -1,23 +1,34 @@
 // ref:
 // - https://umijs.org/plugin/develop.html
-import { IApi } from 'umi-plugin-types'
+import { IApi } from 'umi'
 // @ts-ignore
-import Mustache from 'mustache'
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync } from 'fs'
 import { join } from 'path'
-interface Options {
-  name?: string
-  isShowButton?: boolean
-  portalDomain?: string
-}
 
-export default function(api: IApi, options: Options) {
-  const { paths, cwd } = api
+export default function(api: IApi) {
+  const { paths, cwd, utils: { Mustache }, } = api
   const { name: pkgName } = require(join(cwd, 'package.json'))
-  const { portalDomain, isShowButton = true, name: optionName } = options || {}
-  const name = optionName || pkgName
+
+  api.describe({
+    key: 'qiankun-slave',
+    config: {
+      default: {
+        portalDomain: null,
+        isShowButton: true,
+        name: pkgName,
+      },
+      schema(joi) {
+        return joi.object({
+          portalDomain: joi.string(),
+          isShowButton: joi.boolean(),
+          name: joi.string(),
+        });
+      },
+    },
+  });
   // 更改打包默认配置
   api.modifyDefaultConfig((memo) => {
+    const name = pkgName
     return {
       ...memo,
       base: `/${name}`,
@@ -31,17 +42,28 @@ export default function(api: IApi, options: Options) {
       },
     }
   })
-  // 回到主项目按钮
-  if (isShowButton) {
-    // @ts-ignore
-    api.addRendererWrapperWithComponent(() => {
-      const wrapperTpl = readFileSync(join(__dirname, './templates/HomeButtonWrapper.jsx.tpl'), 'utf-8');
-      const wrapperContent = Mustache.render(wrapperTpl, {
+  api.onGenerateFiles(() => {
+    const { portalDomain, isShowButton } = api.config['qiankun-slave']
+    const homeButtonTpl = readFileSync(
+      join(__dirname, 'templates', 'HomeButtonWrapper.jsx.tpl'),
+      'utf-8',
+    );
+    api.writeTmpFile({
+      path: 'plugin-qiankun-slave/HomeButtonWrapper.jsx',
+      content: Mustache.render(homeButtonTpl, {
         portalDomain,
-      })
-      const wrapperPath = join(paths.absTmpDirPath, './HomeButtonWrapper.jsx')
-      writeFileSync(wrapperPath, wrapperContent, 'utf-8')
-      return wrapperPath;
-    })
-  }
+        isShowButton
+      }),
+    });
+    // runtime.tsx
+    const runtimeTpl = readFileSync(
+      join(__dirname, 'templates', 'runtime.tpl'),
+      'utf-8',
+    );
+    api.writeTmpFile({
+      path: 'plugin-qiankun-slave/runtime.jsx',
+      content: runtimeTpl,
+    });
+  })
+  api.addRuntimePlugin(() => join(paths.absTmpPath, 'plugin-qiankun-slave/runtime'))
 }

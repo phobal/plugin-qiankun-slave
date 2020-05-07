@@ -27,7 +27,7 @@ const setLocalPosition = (data) => {
 }
 
 const HomeButtonProvider = (props) => {
-  const { children, portalDomain } = props
+  const { children, portalDomain, isShowButton } = props
   const [position, setPosition] = React.useState(getLocalPosition())
   const onStop = (e, data) => {
     e.stopPropagation()
@@ -48,6 +48,7 @@ const HomeButtonProvider = (props) => {
   }
   return (
     <React.Fragment>
+      {{#isShowButton}}
       <Draggable
         bounds="body"
         position={position}
@@ -55,6 +56,7 @@ const HomeButtonProvider = (props) => {
       >
         <div title="回到主系统" style={styles.homeButtonWrapper}></div>
       </Draggable>
+      {{/isShowButton}}
       {children}
     </React.Fragment>
   )
