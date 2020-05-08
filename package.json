@@ -1,6 +1,6 @@
 {
   "name": "plugin-qiankun-slave",
-  "version": "v0.0.18",
+  "version": "1.0.0",
   "description": "plugin for qiankun slave",
   "authors": {
     "name": "phobal",
